@@ -41,26 +41,15 @@ public class Main {
         }
     }
 
-    public static void distance(int deliveryDistance) {
-
-        if (deliveryDistance <= 20) {
-
-            System.out.println("Потребуется дней: 1");
-        }
-
-        if (deliveryDistance > 20 && deliveryDistance <= 60) {
-
-            System.out.println("Потребуется дней: 2");
-        }
-
-        if (deliveryDistance > 60 && deliveryDistance <= 100) {
-
-            System.out.println("Потребуется дней: 3");
-        }
-
-        if (deliveryDistance > 100) {
-
-            System.out.println("Нет доставки");
+    public static int distanceTime(int km) {
+        if (km <= 20) {
+            return 1;
+        } else if (km > 20 && km < 60) {
+            return 2;
+        } else if (km >= 60 && km < 100) {
+            return 3;
+        } else {
+            return 0;
         }
     }
 
@@ -72,7 +61,13 @@ public class Main {
         int clientOS = 1;
         clientDevice(clientDeviceYear, clientOS);
 
-        int deliveryDistance = 95;
-        distance(deliveryDistance);
+        int deliveryDistance = 50;
+        int days = distanceTime(deliveryDistance);
+        if (days > 0) {
+            System.out.println("Потребуется дней: " + days);
+        } else {
+            System.out.println("Доставки нет.");
+        }
     }
 }
+
